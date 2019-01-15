@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6133BEE121ECA8130052884A /* DataSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6133BEE021ECA8130052884A /* DataSetTableViewCell.swift */; };
+		6133BEE321ED75D70052884A /* DataSetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6133BEE221ED75D70052884A /* DataSetResponse.swift */; };
 		6174726A21E893EB00E0C3D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6174726921E893EB00E0C3D4 /* AppDelegate.swift */; };
 		6174727121E893EC00E0C3D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6174727021E893EC00E0C3D4 /* Assets.xcassets */; };
 		6174727421E893EC00E0C3D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6174727221E893EC00E0C3D4 /* LaunchScreen.storyboard */; };
@@ -20,6 +22,7 @@
 		6196711321EC656F005C1EB8 /* DataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196711221EC656F005C1EB8 /* DataSetProtocol.swift */; };
 		6196711521EC6593005C1EB8 /* DataSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196711421EC6593005C1EB8 /* DataSetService.swift */; };
 		6196711721EC65F3005C1EB8 /* DataSetPerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196711621EC65F3005C1EB8 /* DataSetPerYear.swift */; };
+		6196711A21EC7C05005C1EB8 /* StoryboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196711921EC7C05005C1EB8 /* StoryboardUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6133BEE021ECA8130052884A /* DataSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetTableViewCell.swift; sourceTree = "<group>"; };
+		6133BEE221ED75D70052884A /* DataSetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetResponse.swift; sourceTree = "<group>"; };
 		6174726621E893EB00E0C3D4 /* DataInsights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataInsights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6174726921E893EB00E0C3D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6174727021E893EC00E0C3D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		6196711221EC656F005C1EB8 /* DataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetProtocol.swift; sourceTree = "<group>"; };
 		6196711421EC6593005C1EB8 /* DataSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetService.swift; sourceTree = "<group>"; };
 		6196711621EC65F3005C1EB8 /* DataSetPerYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetPerYear.swift; sourceTree = "<group>"; };
+		6196711921EC7C05005C1EB8 /* StoryboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 		6196710321EC59B2005C1EB8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6196711821EC7BB8005C1EB8 /* Utils */,
 				6196710521EC59DD005C1EB8 /* Services */,
 				6196710421EC59CD005C1EB8 /* Entities */,
 			);
@@ -174,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				6196711621EC65F3005C1EB8 /* DataSetPerYear.swift */,
+				6133BEE221ED75D70052884A /* DataSetResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -203,8 +211,17 @@
 			isa = PBXGroup;
 			children = (
 				6196710821EC6112005C1EB8 /* DataSet.storyboard */,
+				6133BEE021ECA8130052884A /* DataSetTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6196711821EC7BB8005C1EB8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6196711921EC7C05005C1EB8 /* StoryboardUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,13 +355,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6196711A21EC7C05005C1EB8 /* StoryboardUtil.swift in Sources */,
 				6196711121EC655B005C1EB8 /* DataSetInteractor.swift in Sources */,
 				6196711521EC6593005C1EB8 /* DataSetService.swift in Sources */,
 				6196710D21EC6527005C1EB8 /* DataSetWireframe.swift in Sources */,
 				6174726A21E893EB00E0C3D4 /* AppDelegate.swift in Sources */,
 				6196710B21EC63B4005C1EB8 /* DataSetView.swift in Sources */,
+				6133BEE321ED75D70052884A /* DataSetResponse.swift in Sources */,
 				6196711721EC65F3005C1EB8 /* DataSetPerYear.swift in Sources */,
 				6196711321EC656F005C1EB8 /* DataSetProtocol.swift in Sources */,
+				6133BEE121ECA8130052884A /* DataSetTableViewCell.swift in Sources */,
 				6196710F21EC653E005C1EB8 /* DataSetPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
