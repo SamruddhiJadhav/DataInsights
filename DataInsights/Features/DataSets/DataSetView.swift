@@ -13,7 +13,9 @@ class DataSetView: UITableViewController, DataSetViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.getDataSet(with: "")
+        presenter?.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //tableView.prefetchDataSource = self
     }
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
@@ -54,22 +56,26 @@ extension DataSetView {
         }
         if let dataSet = presenter?.getDataSet()[indexPath.row] {
             cell.configureCell(dataSet.dataSet)
-        } else if indexPath.row > 0 {
-            cell.configureCell(nil)
-            if let data = presenter?.getDataSet()[indexPath.row - 1] {
-                presenter?.getDataSet(with: data.nextLink ?? "")
-            }
         }
         return cell
     }
 
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        
         print("Log: Inside Prefetch")
-        if indexPaths.contains(where: isLoadingCell) {
-            if let data = presenter?.getDataSet()[indexPaths[0].row - 1] {
-                presenter?.getDataSet(with: data.nextLink ?? "")
-            }
+//        if indexPaths.contains(where: isLoadingCell) {
+//            if let data = presenter?.getDataSet()[indexPaths[0].row - 1] {
+//                presenter?.getDataSet(with: data.nextLink ?? "")
+//            }
+//        }
+        
+        if let data = presenter?.getDataSet(), data.count > 0 && data.count < Constants.TOTAL_ENTRIES, let prevData = presenter?.getDataSet().last {
+            presenter?.getDataSet(with: prevData?.nextLink ?? "")
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let data = presenter?.getDataSet(), data.count > 0 && data.count < Constants.TOTAL_ENTRIES, let prevData = presenter?.getDataSet().last {
+            presenter?.getDataSet(with: prevData?.nextLink ?? "")
         }
     }
 }

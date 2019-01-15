@@ -21,6 +21,7 @@ class DataSetInteractor: DataSetInteractorProtocol {
                 return
             }
             guard let dataSetJson = dict["result"] as? [String: Any] else {
+                print("Error: Failure in Interactor")
                 completion(nil)
                 return
             }

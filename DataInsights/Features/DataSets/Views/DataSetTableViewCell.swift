@@ -15,17 +15,11 @@ class DataSetTableViewCell: UITableViewCell {
     @IBOutlet var q3DataLabel: UILabel!
     @IBOutlet var q4DataLabel: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configureCell(_ dataSet: DataSetPerYear?) {
-        yearLabel.text = dataSet?.year ?? ""
-        q1DataLabel.text = "quarter1"
-        q2DataLabel.text = "quarter2"
-        q3DataLabel.text = "quarter3"
-        q4DataLabel.text = "quarter4"
+        yearLabel.text = dataSet?.year
+        q1DataLabel.text = dataSet?.quarterOneData
+        q2DataLabel.text = dataSet?.quarterTwoData
+        q3DataLabel.text = dataSet?.quarterThreeData
+        q4DataLabel.text = dataSet?.quarterFourData
     }
 }

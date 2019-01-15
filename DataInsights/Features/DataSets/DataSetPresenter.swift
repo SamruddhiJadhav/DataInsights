@@ -12,13 +12,11 @@ class DataSetPresenter: DataSetPresenterProtocol {
     var wireframe: DataSetWireframeProtocol?
     var interactor: DataSetInteractorProtocol?
     
-    var dataSets: [DataSetResponse?] = [DataSetResponse?](repeating: nil, count: 10)
-    
+    var dataSets: [DataSetResponse?] = [DataSetResponse?](repeating: nil, count: 0)
     var isFetchInProgress = false
-    var currentCount = 0
     
     func viewDidLoad() {
-        
+        getDataSet(with: "")
     }
     
     func getDataSet() -> [DataSetResponse?] {
@@ -34,27 +32,14 @@ class DataSetPresenter: DataSetPresenterProtocol {
             guard let dataSet = dataSetResponse else {
                 return
             }
-            self?.dataSets[self?.currentCount ?? 0] = dataSet
-            self?.currentCount += 1
-            //print(dataSetResponse)
+            self?.dataSets.append(dataSet)
             self?.isFetchInProgress = false
             DispatchQueue.main.async {
-                if self?.dataSets.count ?? 0 > 1 {
-                    let indexPathsToReload = self?.calculateIndexPathsToReload()
-                    self?.view?.reloadTableView(indexPathsToReload ?? [])
-                } else {
-                    self?.view?.reloadTableView([])
-                }
+                self?.view?.reloadTableView([])
             }
         }, onError: { [weak self] (error) in
             self?.isFetchInProgress = false
             print(error)
         })
-    }
-    
-    private func calculateIndexPathsToReload() -> [IndexPath] {
-        let startIndex = 4
-        let endIndex = startIndex + 4
-        return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }

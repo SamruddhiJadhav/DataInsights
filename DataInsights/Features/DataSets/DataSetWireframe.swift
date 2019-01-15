@@ -12,8 +12,13 @@ import UIKit
 class DataSetWireframe: DataSetWireframeProtocol {
     var presenter: DataSetPresenterProtocol?
     
+    static let STORYBOARD_ID = "DataSet"
+    static let STORYBOARD_VIEW_ID = "DataSetView"
+    static let STORYBOARD_NAVIGATION_VIEW_ID = "NavigationView"
+    
     static func presentDataSetModule(inWindow window: UIWindow) {
-        let view: DataSetView = StoryboardUtil.instantiateView("DataSet","DataSetView")
+        let view: DataSetView = StoryboardUtil.instantiateView(DataSetWireframe.STORYBOARD_ID,
+                                                               DataSetWireframe.STORYBOARD_VIEW_ID)
         let presenter = DataSetPresenter()
         let wireframe = DataSetWireframe()
         let interactor = DataSetInteractor()
@@ -27,7 +32,8 @@ class DataSetWireframe: DataSetWireframeProtocol {
         
         interactor.dataSetService = DataSetService()
         
-        let rootNavigationController = StoryboardUtil.instantiateNavigationView("DataSet","NavigationView")
+        let rootNavigationController = StoryboardUtil.instantiateNavigationView(DataSetWireframe.STORYBOARD_ID,
+                                                                                DataSetWireframe.STORYBOARD_NAVIGATION_VIEW_ID)
         let dataSetView = view as DataSetView
         rootNavigationController.viewControllers = [dataSetView]
         

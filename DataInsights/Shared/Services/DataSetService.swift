@@ -9,15 +9,17 @@
 import Foundation
 
 class DataSetService: DataSetServiceProtocol {
+    
     func getDataSet(for url: String, completion: @escaping([String : Any]?, Error?) -> Void) {
-        var thefullUrl = ""
+        var completeUrl = ""
+        
         if url.isEmpty {
-            thefullUrl = "https://data.gov.sg/api/action/datastore_search?offset=14&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f"
+            completeUrl = Constants.DATA_URL
         } else {
-            thefullUrl = "https://data.gov.sg\(url)"
+            completeUrl = "\(Constants.BASE_URL)\(url)"
         }
         
-        let url = URL(string: thefullUrl)
+        let url = URL(string: completeUrl)
         guard let urlValue = url else {
             return
         }
@@ -36,4 +38,5 @@ class DataSetService: DataSetServiceProtocol {
             }
         }.resume()
     }
+    
 }

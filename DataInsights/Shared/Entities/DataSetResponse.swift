@@ -15,16 +15,14 @@ class DataSetResponse {
     var prevLink: String?
     
     init(with json: [String: Any]) {
-        guard let data = json["records"] as? [[String : Any]] else {
-            return
+        if let data = json["records"] as? [[String : Any]] {
+            dataSet = DataSetPerYear.init(with: data)
         }
-        dataSet = DataSetPerYear.init(with: data)
         
-        guard let links = json["_links"] as? [String: Any] else {
-            return
+        if let links = json["_links"] as? [String: Any] {
+            startLink = links["start"] as? String
+            nextLink = links["next"] as? String
+            prevLink = links["prev"] as? String
         }
-        startLink = links["start"] as? String
-        nextLink = links["next"] as? String
-        prevLink = links["prev"] as? String
     }
 }
