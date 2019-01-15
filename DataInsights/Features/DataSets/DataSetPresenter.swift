@@ -8,6 +8,8 @@
 
 import Foundation
 class DataSetPresenter: DataSetPresenterProtocol {
+    
+    //MARK: - DataSetPresenterProtocol Variables
     var view: DataSetViewProtocol?
     var wireframe: DataSetWireframeProtocol?
     var interactor: DataSetInteractorProtocol?
@@ -15,6 +17,7 @@ class DataSetPresenter: DataSetPresenterProtocol {
     var dataSets: [DataSetResponse?] = [DataSetResponse?](repeating: nil, count: 0)
     var isFetchInProgress = false
     
+    //MARK: - DataSetPresenterProtocol Methods
     func viewDidLoad() {
         getDataSet(with: "")
     }

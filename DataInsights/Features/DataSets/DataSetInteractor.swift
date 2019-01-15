@@ -9,9 +9,12 @@
 import Foundation
 
 class DataSetInteractor: DataSetInteractorProtocol {
+    
+    //MARK: - DataSetInteractorProtocol Variables
     var presenter: DataSetPresenterProtocol?
     var dataSetService: DataSetServiceProtocol?
     
+    //MARK: - DataSetInteractorProtocol Method
     func getDataSet(for url: String, completion: @escaping(DataSetResponse?) -> Void, onError: @escaping FailureHandler) {
         dataSetService?.getDataSet(for: url, completion: { (jsonData, error) in
             var dataSetResponse: DataSetResponse?

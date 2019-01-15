@@ -17,7 +17,6 @@ enum Quarter: String {
 
 class DataSetPerYear {
     var year: String?
-
     var quarterOneData: String?
     var quarterTwoData: String?
     var quarterThreeData: String?

@@ -10,6 +10,7 @@ import Foundation
 
 class DataSetService: DataSetServiceProtocol {
     
+    //MARK: - DataSetServiceProtocol Method
     func getDataSet(for url: String, completion: @escaping([String : Any]?, Error?) -> Void) {
         var completeUrl = ""
         

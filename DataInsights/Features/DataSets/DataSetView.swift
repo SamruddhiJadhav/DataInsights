@@ -9,8 +9,11 @@
 import UIKit
 
 class DataSetView: UITableViewController, DataSetViewProtocol {
+    
+    // MARK: - DataSetViewProtocol Variable
     var presenter: DataSetPresenterProtocol?
     
+    // MARK: - Lifecycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -18,6 +21,7 @@ class DataSetView: UITableViewController, DataSetViewProtocol {
         //tableView.prefetchDataSource = self
     }
     
+    // MARK: - Helper Methods
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= presenter?.getDataSet().count ?? 0
     }
@@ -28,6 +32,7 @@ class DataSetView: UITableViewController, DataSetViewProtocol {
         return Array(indexPathsIntersection)
     }
     
+    //MARK: - DataSetViewProtocol Methods
     func reloadTableView(_ path: [IndexPath]) {
         if path.isEmpty {
             tableView.reloadData()
@@ -38,19 +43,22 @@ class DataSetView: UITableViewController, DataSetViewProtocol {
 }
 
 extension DataSetView {
+    
+    // MARK: - Table View Methods
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.getDataSet().count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300//UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return makeYearCell(indexPath)
+        return makeDataSetCell(indexPath)
     }
     
-    func makeYearCell(_ indexPath: IndexPath) -> UITableViewCell {
+    func makeDataSetCell(_ indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DataSetCell") as?  DataSetTableViewCell else {
             return UITableViewCell()
         }
