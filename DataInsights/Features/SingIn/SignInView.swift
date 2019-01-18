@@ -41,7 +41,6 @@ class SignInView: UIViewController, SignInViewProtocol {
     }
     
     // MARK: - Helper Methods
-    
     func setUpAccessibiltyIdentifiers() {
         continueButton.accessibilityIdentifier = StringConstants.CONTINUE_BUTTON
         usernameTextField.accessibilityIdentifier = StringConstants.USERNAME_TEXTFIELD
@@ -68,5 +67,4 @@ class SignInView: UIViewController, SignInViewProtocol {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-
 }

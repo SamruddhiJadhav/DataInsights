@@ -11,14 +11,11 @@ import XCTest
 
 class DataSetWireframeMock: DataSetWireframeProtocol {
     var presenter: DataSetPresenterProtocol?
+    var expectations = [XCTestExpectation]()
     
-    static func presentDataSetModule(fromView vc: UIViewController) {
-        <#code#>
-    }
+    static func presentDataSetModule(fromView vc: UIViewController) {}
     
     func popViewController() {
-        <#code#>
+        XCTestExpectation.fulfill(with: #function, from: expectations)
     }
-    
-
 }

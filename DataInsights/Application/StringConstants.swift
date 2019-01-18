@@ -13,8 +13,9 @@ class StringConstants {
     static let ERROR_TITLE = "Error"
     static let OK_LABEL = "OK"
     static let INCORRECT_USERNAME_OR_PASSWORD = "Username or Password is incorrect."
-    //static let SIGN_IN_BUTTON =
     static let DATA_USAGE_DECLINED_BY = "Data usage decreased"
+    static let GENERIC_ERROR_MESSAGE = "Sorry, we are unable to process. Please try again later."
+    static let SEPARATOR = "-"
     
     // Accessibility Identifiers
     static let CONTINUE_BUTTON = "continueButton"

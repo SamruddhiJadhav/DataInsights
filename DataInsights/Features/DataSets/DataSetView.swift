@@ -28,7 +28,7 @@ class DataSetView: UITableViewController, DataSetViewProtocol {
     }
     
     //MARK: - DataSetViewProtocol Methods
-    func reloadTableView(_ path: [IndexPath]) {
+    func reloadTableView() {
         tableView.reloadData()
     }
     
@@ -111,8 +111,8 @@ extension DataSetView {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let data = presenter?.dataSets, data.count > 0 && data.count < Constants.TOTAL_ENTRIES, let prevData = presenter?.dataSets.last {
-            presenter?.getDataSet(with: prevData?.nextLink ?? "")
+        if let dataSets = presenter?.dataSets, dataSets.count > 0 && dataSets.count < Constants.TOTAL_ENTRIES, let previousDataSet = presenter?.dataSets.last {
+            presenter?.getDataSet(with: previousDataSet?.nextLink ?? "")
         }
     }
 }

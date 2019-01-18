@@ -13,8 +13,10 @@ class DataSetPresenter: DataSetPresenterProtocol {
     var view: DataSetViewProtocol?
     var wireframe: DataSetWireframeProtocol?
     var interactor: DataSetInteractorProtocol?
-    
+
     var dataSets: [DataSetResponse?] = []
+    
+    //MARK: - DataSetPresenter Variable
     var isFetchInProgress = false
     
     //MARK: - DataSetPresenterProtocol Methods
@@ -34,11 +36,12 @@ class DataSetPresenter: DataSetPresenterProtocol {
             self?.dataSets.append(dataSet)
             self?.isFetchInProgress = false
             DispatchQueue.main.async {
-                self?.view?.reloadTableView([])
+                self?.view?.reloadTableView()
             }
         }, onError: { [weak self] (error) in
+            debugPrint("Error: API call failure.")
             self?.isFetchInProgress = false
-            print(error)
+            self?.view?.showErrorMessage(StringConstants.GENERIC_ERROR_MESSAGE)
         })
     }
     

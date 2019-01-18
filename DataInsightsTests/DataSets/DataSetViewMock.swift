@@ -11,8 +11,13 @@ import XCTest
 
 class DataSetViewMock: DataSetViewProtocol {
     var presenter: DataSetPresenterProtocol?
+    var expectations = [XCTestExpectation]()
     
-    func reloadTableView(_ path: [IndexPath]) {
-        <#code#>
+    func reloadTableView() {
+        XCTestExpectation.fulfill(with: #function, from: expectations)
+    }
+    
+    func showErrorMessage(_ message: String) {
+        XCTestExpectation.fulfill(with: #function, from: expectations)
     }
 }

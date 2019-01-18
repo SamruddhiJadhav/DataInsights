@@ -17,20 +17,19 @@ class DataSetInteractor: DataSetInteractorProtocol {
     //MARK: - DataSetInteractorProtocol Method
     func getDataSet(for url: String, completion: @escaping(DataSetResponse?) -> Void, onError: @escaping FailureHandler) {
         dataSetService?.getDataSet(for: url, completion: { (jsonData, error) in
-            var dataSetResponse: DataSetResponse?
-            guard let dict = jsonData, !dict.isEmpty else {
-                print("Error: Failure in Interactor")
+            guard let dataDictionary = jsonData, !dataDictionary.isEmpty else {
+                debugPrint("Error: Failure in Interactor")
                 onError(error.debugDescription)
                 return
             }
-            guard let dataSetJson = dict["result"] as? [String: Any] else {
-                print("Error: Failure in Interactor")
+            guard let dataSetJsonResponse = dataDictionary["result"] as? [String: Any] else {
+                debugPrint("Error: Failure in Interactor")
                 completion(nil)
                 return
             }
             
-            dataSetResponse = DataSetResponse.init(with: dataSetJson)
-            print("Success: Success in Interactor")
+            let dataSetResponse = DataSetResponse.init(with: dataSetJsonResponse)
+            debugPrint("Success: Success in Interactor")
             completion(dataSetResponse)
         })
     }

@@ -15,7 +15,7 @@ class DataSetInteractorMock: DataSetInteractorProtocol {
     var dataSetService: DataSetServiceProtocol?
     
     func getDataSet(for url: String, completion: @escaping (DataSetResponse?) -> Void, onError: @escaping FailureHandler) {
-        <#code#>
+        
     }
 
 }

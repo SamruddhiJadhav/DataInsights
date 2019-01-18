@@ -24,6 +24,7 @@ class DataSetService: DataSetServiceProtocol {
         guard let urlValue = url else {
             return
         }
+        
         let request = URLRequest(url: urlValue)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let object = data, object.count > 0 {
@@ -32,10 +33,11 @@ class DataSetService: DataSetServiceProtocol {
                     completion(json as? [String : Any], nil)
                 } catch {
                     completion(nil, nil)
-                    print("Error: JSONSerialization fail")
+                    debugPrint("Error: JSONSerialization fail")
                 }
             } else if error != nil {
                 completion(nil, error)
+                debugPrint("Error: Failure")
             }
         }.resume()
     }

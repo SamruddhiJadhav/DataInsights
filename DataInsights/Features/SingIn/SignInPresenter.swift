@@ -17,10 +17,10 @@ class SignInPresenter: SignInPresenterProtocol {
     // MARK: - SignInPresenterProtocol method
     func continueButtonClicked(_ username: String?, _ password: String?) {
         if isValidUser(username, password) {
-            print("Success: Signed In")
+            debugPrint("Success: Signed In")
             wireframe?.presentDataSetModule()
         } else {
-            print("Error: Sign In failed")
+            debugPrint("Error: Sign In failed")
             view?.showErrorMessage(StringConstants.INCORRECT_USERNAME_OR_PASSWORD)
         }
     }

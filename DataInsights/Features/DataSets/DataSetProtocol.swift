@@ -14,7 +14,8 @@ typealias FailureHandler = (_ errorMessage: String) -> Void
 protocol DataSetViewProtocol {
     var presenter: DataSetPresenterProtocol? { get set }
     
-    func reloadTableView(_ path: [IndexPath])
+    func reloadTableView()
+    func showErrorMessage(_ message: String)
 }
 
 protocol DataSetPresenterProtocol {
