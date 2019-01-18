@@ -14,16 +14,12 @@ class DataSetPresenter: DataSetPresenterProtocol {
     var wireframe: DataSetWireframeProtocol?
     var interactor: DataSetInteractorProtocol?
     
-    var dataSets: [DataSetResponse?] = [DataSetResponse?](repeating: nil, count: 0)
+    var dataSets: [DataSetResponse?] = []
     var isFetchInProgress = false
     
     //MARK: - DataSetPresenterProtocol Methods
     func viewDidLoad() {
         getDataSet(with: "")
-    }
-    
-    func getDataSet() -> [DataSetResponse?] {
-        return dataSets
     }
     
     func getDataSet(with nextUrl: String) {
@@ -44,5 +40,9 @@ class DataSetPresenter: DataSetPresenterProtocol {
             self?.isFetchInProgress = false
             print(error)
         })
+    }
+    
+    func okButtonClicked() {
+        wireframe?.popViewController()
     }
 }

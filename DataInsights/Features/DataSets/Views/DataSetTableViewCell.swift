@@ -10,16 +10,31 @@ import UIKit
 
 class DataSetTableViewCell: UITableViewCell {
     @IBOutlet var yearLabel: UILabel!
-    @IBOutlet var q1DataLabel: UILabel!
-    @IBOutlet var q2DataLabel: UILabel!
-    @IBOutlet var q3DataLabel: UILabel!
-    @IBOutlet var q4DataLabel: UILabel!
+    @IBOutlet var declineImage: UIButton!
+    @IBOutlet var dataUsageLabel: UILabel!
+    
+    @IBAction func imageClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "",
+                                      message: StringConstants.DATA_USAGE_DECLINED_BY,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: StringConstants.OK_LABEL,
+                                      style: .default,
+                                      handler: nil))
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     
     func configureCell(_ dataSet: DataSetPerYear?) {
-        yearLabel.text = dataSet?.year
-        q1DataLabel.text = dataSet?.quarterOneData
-        q2DataLabel.text = dataSet?.quarterTwoData
-        q3DataLabel.text = dataSet?.quarterThreeData
-        q4DataLabel.text = dataSet?.quarterFourData
+        if let year = dataSet?.year {
+            yearLabel.text = year
+        }
+        if let dataUsage = dataSet?.dataUsagePerYear {
+            dataUsageLabel.text = String(dataUsage)
+        }
+        if let isUsageDeclined = dataSet?.isUsageDeclined {
+            declineImage.isHidden = !isUsageDeclined
+        } else {
+            declineImage.isHidden = true
+        }
     }
 }

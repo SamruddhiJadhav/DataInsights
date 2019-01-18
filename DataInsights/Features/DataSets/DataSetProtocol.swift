@@ -22,9 +22,11 @@ protocol DataSetPresenterProtocol {
     var wireframe: DataSetWireframeProtocol? { get set }
     var interactor: DataSetInteractorProtocol? { get set }
     
+    var dataSets: [DataSetResponse?] { get set }
+    
     func viewDidLoad()
     func getDataSet(with nextUrl: String)
-    func getDataSet() -> [DataSetResponse?]
+    func okButtonClicked()
 }
 
 protocol DataSetInteractorProtocol {
@@ -37,7 +39,8 @@ protocol DataSetInteractorProtocol {
 protocol DataSetWireframeProtocol {
     var presenter: DataSetPresenterProtocol? { get set }
     
-    static func presentDataSetModule(inWindow window: UIWindow)
+    static func presentDataSetModule(fromView vc: UIViewController)
+    func popViewController()
 }
 
 protocol DataSetServiceProtocol {

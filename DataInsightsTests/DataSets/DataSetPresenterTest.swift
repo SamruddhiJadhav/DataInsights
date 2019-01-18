@@ -1,15 +1,15 @@
 //
-//  DataInsightsTests.swift
+//  DataSetPresenterTest.swift
 //  DataInsightsTests
 //
-//  Created by Jadhav, Samruddhi on 11/01/19.
+//  Created by Jadhav, Samruddhi on 18/01/19.
 //  Copyright © 2019 Jadhav, Samruddhi. All rights reserved.
 //
 
-import XCTest
 @testable import DataInsights
+import XCTest
 
-class DataInsightsTests: XCTestCase {
+class DataSetPresenterTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

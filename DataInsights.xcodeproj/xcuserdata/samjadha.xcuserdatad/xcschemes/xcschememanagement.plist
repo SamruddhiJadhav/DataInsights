@@ -6,8 +6,35 @@
 	<dict>
 		<key>DataInsights.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>DataInsightsTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6174726521E893EB00E0C3D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6174727921E893EC00E0C3D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6174728421E893EC00E0C3D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

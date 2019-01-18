@@ -24,7 +24,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pieChart" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-uJ-4dr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PieChart" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-uJ-4dr">
                                 <rect key="frame" x="157.5" y="242.5" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CXz-TD-5tV"/>
@@ -48,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pieChart" width="30" height="30"/>
+        <image name="PieChart" width="30" height="30"/>
     </resources>
 </document>

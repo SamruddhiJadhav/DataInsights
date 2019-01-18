@@ -17,10 +17,9 @@ class DataSetWireframe: DataSetWireframeProtocol {
     //MARK: - DataSetWireframe Constants
     static let STORYBOARD_ID = "DataSet"
     static let STORYBOARD_VIEW_ID = "DataSetView"
-    static let STORYBOARD_NAVIGATION_VIEW_ID = "NavigationView"
     
     //MARK: - DataSetWireframeProtocol Method
-    static func presentDataSetModule(inWindow window: UIWindow) {
+    static func presentDataSetModule(fromView vc: UIViewController) {
         let view: DataSetView = StoryboardUtil.instantiateView(DataSetWireframe.STORYBOARD_ID,
                                                                DataSetWireframe.STORYBOARD_VIEW_ID)
         let presenter = DataSetPresenter()
@@ -36,11 +35,13 @@ class DataSetWireframe: DataSetWireframeProtocol {
         
         interactor.dataSetService = DataSetService()
         
-        let rootNavigationController = StoryboardUtil.instantiateNavigationView(DataSetWireframe.STORYBOARD_ID,
-                                                                                DataSetWireframe.STORYBOARD_NAVIGATION_VIEW_ID)
-        let dataSetView = view as DataSetView
-        rootNavigationController.viewControllers = [dataSetView]
-        
-        window.rootViewController = rootNavigationController
+        vc.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func popViewController() {
+        guard let view = presenter?.view as? UIViewController else {
+            return
+        }
+        view.navigationController?.popViewController(animated: true)
     }
 }

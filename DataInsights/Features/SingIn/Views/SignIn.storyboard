@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zmh-pk-LqL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View-->
+        <scene sceneID="sng-e5-kWz">
+            <objects>
+                <viewController storyboardIdentifier="SignInView" id="chm-o2-lZ5" customClass="SignInView" customModule="DataInsights" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xxh-kV-Qp3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CRD-2w-0ve">
+                                <rect key="frame" x="40" y="232" width="295" height="139"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nol-CG-X0U">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qGC-kR-D4Z">
+                                        <rect key="frame" x="0.0" y="53" width="295" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-SV-uND">
+                                        <rect key="frame" x="0.0" y="106" width="295" height="33"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Continue">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="continueButton:" destination="chm-o2-lZ5" eventType="touchUpInside" id="pCD-WG-LrP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PieChart" translatesAutoresizingMaskIntoConstraints="NO" id="0cp-4d-FOT">
+                                <rect key="frame" x="162.5" y="157" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="R8B-e1-vyu"/>
+                                    <constraint firstAttribute="width" constant="50" id="w5x-Xx-BgW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tvO-rH-fvO" firstAttribute="trailing" secondItem="CRD-2w-0ve" secondAttribute="trailing" constant="40" id="04X-F6-18q"/>
+                            <constraint firstItem="CRD-2w-0ve" firstAttribute="centerX" secondItem="tvO-rH-fvO" secondAttribute="centerX" id="0XD-nh-Eie"/>
+                            <constraint firstItem="CRD-2w-0ve" firstAttribute="centerY" secondItem="tvO-rH-fvO" secondAttribute="centerY" id="WFK-vT-1kj"/>
+                            <constraint firstItem="CRD-2w-0ve" firstAttribute="top" secondItem="0cp-4d-FOT" secondAttribute="bottom" constant="25" id="fmp-2u-Mod"/>
+                            <constraint firstItem="0cp-4d-FOT" firstAttribute="centerX" secondItem="tvO-rH-fvO" secondAttribute="centerX" id="o7P-fL-V5y"/>
+                            <constraint firstItem="CRD-2w-0ve" firstAttribute="leading" secondItem="tvO-rH-fvO" secondAttribute="leading" constant="40" id="wEo-nQ-e6S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tvO-rH-fvO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XFP-TO-DlA"/>
+                    <connections>
+                        <outlet property="continueButton" destination="cP4-SV-uND" id="WTm-dZ-YT2"/>
+                        <outlet property="passwordTextField" destination="qGC-kR-D4Z" id="GDd-L6-FJn"/>
+                        <outlet property="usernameTextField" destination="Nol-CG-X0U" id="rYT-UN-e1U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ve4-zf-wz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167.2" y="-289.20539730134936"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BRD-Zx-AON">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="zmh-pk-LqL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ac3-3r-qQ1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="chm-o2-lZ5" kind="relationship" relationship="rootViewController" id="kTn-PR-Gz0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNJ-UF-Txo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="-289.20539730134936"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PieChart" width="30" height="30"/>
+    </resources>
+</document>
