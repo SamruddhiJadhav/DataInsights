@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>DataSetService.swift - Slather</title>
+<link href="slather.css" media="all" rel="stylesheet">
+</head>
+<body>
+<header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
+<h2 class="cov_title">
+<span>Coverage for "DataSetService.swift" : </span><span class="cov_low">33.96%</span>
+</h2>
+<h4 class="cov_subtitle">(18 of 53 relevant lines covered)</h4>
+<h4 class="cov_filepath">DataInsights/Shared/Services/DataSetService.swift</h4>
+<table class="source_code">
+<tr class="never">
+<td class="num">1</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">2</td>
+<td class="src"><pre><code class="objc">//  DataSetService.swift</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">3</td>
+<td class="src"><pre><code class="objc">//  DataInsights</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">4</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">5</td>
+<td class="src"><pre><code class="objc">//  Created by Jadhav, Samruddhi on 14/01/19.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">6</td>
+<td class="src"><pre><code class="objc">//  Copyright &copy; 2019 Jadhav, Samruddhi. All rights reserved.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">7</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">8</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">9</td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">10</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">11</td>
+<td class="src"><pre><code class="objc">class DataSetService: DataSetServiceProtocol {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">12</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">13</td>
+<td class="src"><pre><code class="objc">    //MARK: - DataSetServiceProtocol Method</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">14</td>
+<td class="src"><pre><code class="objc">    func getDataSet(for url: String, completion: @escaping([String : Any]?, Error?) -&gt; Void) {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc">        var completeUrl = ""</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc">        if url.isEmpty {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="missed">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">            completeUrl = Constants.DATA_URL</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">        } else {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">            completeUrl = "\(Constants.BASE_URL)\(url)"</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">        let url = URL(string: completeUrl)</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">        guard let urlValue = url else {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="missed">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">        let request = URLRequest(url: urlValue)</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">            </code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">        if !ReachabilityManager.isConnectedToNetwork() {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="missed">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">            getDataSetFromCache(request, completion: completion)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">        } else {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">            getDataSetFromAPI(request, completion: completion)</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">    func getDataSetFromCache(_ request: URLRequest, completion: @escaping([String : Any]?, Error?) -&gt; Void) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">        let cacheResponse = URLCache.shared.cachedResponse(for: request)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">38</td>
+<td class="src"><pre><code class="objc">        if let data = cacheResponse?.data {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc">            do {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">                let json = try JSONSerialization.jsonObject(with: data, options: [])</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">41</td>
+<td class="src"><pre><code class="objc">                print("Log: Data From Cache: \(json)")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">                completion(json as? [String : Any], nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc">            } catch {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">                completion(nil, nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">                print("Error: JSONSerialization fail")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">        } else {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">            print("Error: Data is not available")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">            completion(nil, nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">    func getDataSetFromAPI(_ request: URLRequest, completion: @escaping([String : Any]?, Error?) -&gt; Void) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc">        URLSession.shared.dataTask(with: request) { (data, response, error) in</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">            if let object = data, object.count &gt; 0 {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc">                do {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">                    let json = try JSONSerialization.jsonObject(with: object, options: [])</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc">                    completion(json as? [String : Any], nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">                } catch {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc">                    completion(nil, nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc">                    debugPrint("Error: JSONSerialization fail")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">            } else if error != nil {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">                completion(nil, error)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">65</td>
+<td class="src"><pre><code class="objc">                debugPrint("Error: Failure")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">67</td>
+<td class="src"><pre><code class="objc">        }.resume()</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">68</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+</table>
+</div></div>
+<footer><div class="row">
+<p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
+<p>&copy; 2019 Slather</p>
+</div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
