@@ -17,10 +17,14 @@ class ReachabilityManager: NSObject {
         
         guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
             SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
-        }) else { return false }
+        }) else {
+            return false
+        }
         
         var flags = SCNetworkReachabilityFlags()
-        guard SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) else { return false }
+        guard SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) else {
+            return false
+        }
         
         return flags.contains(.reachable) && !flags.contains(.connectionRequired)
     }
