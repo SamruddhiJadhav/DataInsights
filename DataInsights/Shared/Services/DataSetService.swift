@@ -25,6 +25,32 @@ class DataSetService: DataSetServiceProtocol {
             return
         }
         let request = URLRequest(url: urlValue)
+            
+        if !ReachabilityManager.isConnectedToNetwork() {
+            getDataSetFromCache(request, completion: completion)
+        } else {
+            getDataSetFromAPI(request, completion: completion)
+        }
+    }
+    
+    func getDataSetFromCache(_ request: URLRequest, completion: @escaping([String : Any]?, Error?) -> Void) {
+        let cacheResponse = URLCache.shared.cachedResponse(for: request)
+        if let data = cacheResponse?.data {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print("Log: Data From Cache: \(json)")
+                completion(json as? [String : Any], nil)
+            } catch {
+                completion(nil, nil)
+                print("Error: JSONSerialization fail")
+            }
+        } else {
+            print("Error: Data is not available")
+            completion(nil, nil)
+        }
+    }
+    
+    func getDataSetFromAPI(_ request: URLRequest, completion: @escaping([String : Any]?, Error?) -> Void) {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let object = data, object.count > 0 {
                 do {
