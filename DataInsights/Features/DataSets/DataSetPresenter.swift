@@ -21,6 +21,7 @@ class DataSetPresenter: DataSetPresenterProtocol {
     
     //MARK: - DataSetPresenterProtocol Methods
     func viewDidLoad() {
+        view?.showLoadingIndicator()
         getDataSet(with: "")
     }
     
@@ -33,6 +34,7 @@ class DataSetPresenter: DataSetPresenterProtocol {
             guard let dataSet = dataSetResponse else {
                 return
             }
+            self?.view?.hideLoadingIndicator()
             self?.dataSets.append(dataSet)
             self?.isFetchInProgress = false
             DispatchQueue.main.async {
@@ -42,6 +44,7 @@ class DataSetPresenter: DataSetPresenterProtocol {
             debugPrint("Error: API call failure.")
             self?.isFetchInProgress = false
             self?.view?.showErrorMessage(StringConstants.GENERIC_ERROR_MESSAGE)
+            self?.view?.hideLoadingIndicator()
         })
     }
     

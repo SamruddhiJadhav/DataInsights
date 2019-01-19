@@ -16,6 +16,8 @@ protocol DataSetViewProtocol {
     
     func reloadTableView()
     func showErrorMessage(_ message: String)
+    func showLoadingIndicator()
+    func hideLoadingIndicator()
 }
 
 protocol DataSetPresenterProtocol {
@@ -32,7 +34,6 @@ protocol DataSetPresenterProtocol {
 
 protocol DataSetInteractorProtocol {
     var presenter: DataSetPresenterProtocol? { get set }
-    var dataSetService: DataSetServiceProtocol? { get set }
     
     func getDataSet(for url: String, completion: @escaping(DataSetResponse?) -> Void, onError: @escaping FailureHandler)
 }

@@ -21,4 +21,5 @@ class StringConstants {
     static let CONTINUE_BUTTON = "continueButton"
     static let USERNAME_TEXTFIELD = "usernameTextField"
     static let PASSWORD_TEXTFIELD = "passwordTextField"
+    static let DECLINE_IMAGE = "declineImage"
 }

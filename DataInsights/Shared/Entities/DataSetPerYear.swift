@@ -16,7 +16,6 @@ class DataSetPerYear {
     
     init(with jsonData: [[String: Any]]) {
         quarterDataList = [Double?]()
-        print(jsonData)
         
         if let quarterOfYear = jsonData[0]["quarter"] as? String {
             let yearAndQuarter = quarterOfYear.components(separatedBy: StringConstants.SEPARATOR)

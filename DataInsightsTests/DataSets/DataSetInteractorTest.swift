@@ -10,13 +10,33 @@
 import XCTest
 
 class DataSetInteractorTest: XCTestCase {
-
+    var interactor = DataSetInteractor()
+    let service = DataSetServiceMock()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        interactor.dataSetService = service
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testGetDataSetSuccess() {
+        service.isNegativeTestCase = false
+        
+        interactor.getDataSet(for: "", completion: { (dataSetResponse) in
+            XCTAssertEqual(dataSetResponse?.startLink, "/api/action/datastore_search?limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f")
+            XCTAssert(dataSetResponse?.prevLink == "/api/action/datastore_search?offset=10&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f")
+            XCTAssert(dataSetResponse?.nextLink == "/api/action/datastore_search?offset=18&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f")
+            
+        }, onError: { (error) in
+            XCTAssertNil(error)
+        })
     }
-
+    
+    func testGetDataSetFailure() {
+        service.isNegativeTestCase = true
+        interactor.getDataSet(for: "", completion: { (dataResponse) in
+            XCTAssertNil(dataResponse)
+        }) { (error) in
+            XCTAssertNotNil(error)
+        }
+    }
 }

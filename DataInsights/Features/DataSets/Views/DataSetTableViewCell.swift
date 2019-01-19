@@ -36,5 +36,6 @@ class DataSetTableViewCell: UITableViewCell {
         } else {
             declineImage.isHidden = true
         }
+        declineImage.accessibilityLabel = StringConstants.DECLINE_IMAGE
     }
 }

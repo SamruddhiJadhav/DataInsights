@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		610A7A3721F1F13200ED503E /* Double+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610A7A3621F1F13200ED503E /* Double+ext.swift */; };
 		610A7A3921F1F18A00ED503E /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610A7A3821F1F18A00ED503E /* CommonUtils.swift */; };
-		610A7A3C21F1FE9900ED503E /* getDataSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 610A7A3B21F1FE9900ED503E /* getDataSet.json */; };
 		6133BEE121ECA8130052884A /* DataSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6133BEE021ECA8130052884A /* DataSetTableViewCell.swift */; };
 		6133BEE321ED75D70052884A /* DataSetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6133BEE221ED75D70052884A /* DataSetResponse.swift */; };
 		613A273821EDC4DD00E58815 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A273721EDC4DD00E58815 /* Constants.swift */; };
@@ -64,7 +63,6 @@
 /* Begin PBXFileReference section */
 		610A7A3621F1F13200ED503E /* Double+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ext.swift"; sourceTree = "<group>"; };
 		610A7A3821F1F18A00ED503E /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
-		610A7A3B21F1FE9900ED503E /* getDataSet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = getDataSet.json; sourceTree = "<group>"; };
 		6133BEE021ECA8130052884A /* DataSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetTableViewCell.swift; sourceTree = "<group>"; };
 		6133BEE221ED75D70052884A /* DataSetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetResponse.swift; sourceTree = "<group>"; };
 		613A273721EDC4DD00E58815 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -136,14 +134,6 @@
 				610A7A3621F1F13200ED503E /* Double+ext.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		610A7A3A21F1FE7A00ED503E /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				610A7A3B21F1FE9900ED503E /* getDataSet.json */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		615FF6C821F10895003B5B5C /* SignIn */ = {
@@ -252,7 +242,6 @@
 		6196710321EC59B2005C1EB8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				610A7A3A21F1FE7A00ED503E /* Mocks */,
 				610A7A3521F1F11600ED503E /* Extension */,
 				6196711821EC7BB8005C1EB8 /* Utils */,
 				6196710521EC59DD005C1EB8 /* Services */,
@@ -437,7 +426,6 @@
 				6174727421E893EC00E0C3D4 /* LaunchScreen.storyboard in Resources */,
 				6196710921EC6112005C1EB8 /* DataSet.storyboard in Resources */,
 				6174727121E893EC00E0C3D4 /* Assets.xcassets in Resources */,
-				610A7A3C21F1FE9900ED503E /* getDataSet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

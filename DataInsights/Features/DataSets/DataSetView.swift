@@ -111,7 +111,7 @@ extension DataSetView {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let dataSets = presenter?.dataSets, dataSets.count > 0 && dataSets.count < Constants.TOTAL_ENTRIES, let previousDataSet = presenter?.dataSets.last {
+        if let dataSets = presenter?.dataSets, dataSets.count > 0, let previousDataSet = presenter?.dataSets.last {
             presenter?.getDataSet(with: previousDataSet?.nextLink ?? "")
         }
     }

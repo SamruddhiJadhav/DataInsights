@@ -13,18 +13,24 @@ class DataSetInteractor: DataSetInteractorProtocol {
     //MARK: - DataSetInteractorProtocol Variables
     var presenter: DataSetPresenterProtocol?
     var dataSetService: DataSetServiceProtocol?
+    var isEndOfData = false
     
     //MARK: - DataSetInteractorProtocol Method
     func getDataSet(for url: String, completion: @escaping(DataSetResponse?) -> Void, onError: @escaping FailureHandler) {
-        dataSetService?.getDataSet(for: url, completion: { (jsonData, error) in
-            guard let dataDictionary = jsonData, !dataDictionary.isEmpty else {
+        guard !isEndOfData else {
+            return
+        }
+        dataSetService?.getDataSet(for: url, completion: { [weak self] (jsonData, error) in
+            guard let dataDictionary = jsonData, !dataDictionary.isEmpty,
+                let dataSetJsonResponse = dataDictionary["result"] as? [String: Any] else {
                 debugPrint("Error: Failure in Interactor")
                 onError(error.debugDescription)
+                completion(nil)
                 return
             }
-            guard let dataSetJsonResponse = dataDictionary["result"] as? [String: Any] else {
-                debugPrint("Error: Failure in Interactor")
-                completion(nil)
+            
+            guard let records = dataSetJsonResponse["records"] as? [[String: Any]], !records.isEmpty else {
+                self?.isEndOfData = true
                 return
             }
             

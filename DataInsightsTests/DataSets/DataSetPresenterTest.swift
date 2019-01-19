@@ -11,12 +11,42 @@ import XCTest
 
 class DataSetPresenterTest: XCTestCase {
 
+    let presenter = DataSetPresenter()
+    let view = DataSetViewMock()
+    let interactor = DataSetInteractorMock()
+    let wireframe = DataSetWireframeMock()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+       super.setUp()
+       presenter.view = view
+       presenter.interactor = interactor
+       presenter.wireframe = wireframe
     }
     
+    func testViewDidLoad() {
+        view.expectations.append(expectation(description: "showLoadingIndicator()"))
+        presenter.viewDidLoad()
+        wait(for: view.expectations, timeout: XCTestExpectation.expectationTimeout)
+    }
+    
+    func testOkButtonClicked() {
+        wireframe.expectations.append(expectation(description: "popViewController()"))
+        presenter.okButtonClicked()
+        wait(for: wireframe.expectations, timeout: XCTestExpectation.expectationTimeout)
+    }
+    
+    func testGetDataSetSuccess() {
+        interactor.isNegativeTestCase = false
+        view.expectations.append(expectation(description: "reloadTableView()"))
+        presenter.getDataSet(with: "")
+        wait(for: view.expectations, timeout: XCTestExpectation.expectationTimeout)
+    }
+    
+    func testGetDataSetFailure() {
+        interactor.isNegativeTestCase = true
+        view.expectations.append(expectation(description: "hideLoadingIndicator()"))
+        view.expectations.append(expectation(description: "showErrorMessage"))
+        presenter.getDataSet(with: "")
+        wait(for: view.expectations, timeout: XCTestExpectation.expectationTimeout)
+    }
 }

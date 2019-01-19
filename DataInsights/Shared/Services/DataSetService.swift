@@ -24,7 +24,6 @@ class DataSetService: DataSetServiceProtocol {
         guard let urlValue = url else {
             return
         }
-        
         let request = URLRequest(url: urlValue)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let object = data, object.count > 0 {

@@ -20,4 +20,12 @@ class DataSetViewMock: DataSetViewProtocol {
     func showErrorMessage(_ message: String) {
         XCTestExpectation.fulfill(with: #function, from: expectations)
     }
+    
+    func showLoadingIndicator() {
+        XCTestExpectation.fulfill(with: #function, from: expectations)
+    }
+    
+    func hideLoadingIndicator() {
+        XCTestExpectation.fulfill(with: #function, from: expectations)
+    }
 }
